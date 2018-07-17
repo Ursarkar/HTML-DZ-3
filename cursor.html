@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Курсоры</title>
+</head>
+<body>
+<h1>Объявление курсора</h1><br>
+<a href="https://google.by"><img src="./image/search.png" alt="картинки нет"></a>   
+<p align="center">
+<a href="#p1">|Курсор без параметра|</a>
+<a href="#p2">|Курсор с параметрами|</a>
+<a href="#p3">|Курсор с возвращающим усовием|</a>    
+</p>
+<h3>Описание</h3>
+<pre>
+Курсор это определенный оператор SELECT, который объявлен в PLSQL коде. 
+Рассмотрим три различных синтаксиса объявления курсора.    
+</pre>
+<pre id=p1>
+        <strong>КУРСОР БЕЗ ПАРАМЕТРОВ (ПРОСТОЙ)</strong>
+        Объявление курсора без каких-либо параметров, простой курсор.
+        
+        Синтаксис
+        CURSOR cursor_name
+        IS
+        SELECT_statement;
+        
+        Например, вы можете определить курсор под названием c1, как показано ниже.
+             
+        CURSOR c1
+        IS
+          SELECT course_number
+          FROM courses_tbl
+          WHERE course_name = name_in;
+   
+        Результирующий набор этого курсора все course_numbers, у которых course_name 
+        соответствует переменной name_in. Ниже приведена функция, которая использует 
+        этот курсор.
+                
+        CREATE OR REPLACE Function FindCourse
+           ( name_in IN varchar2 )
+           RETURN number
+        IS
+           cnumber number;
+           CURSOR c1
+           IS
+             SELECT course_number
+             FROM courses_tbl
+             WHERE course_name = name_in;
+        BEGIN
+           OPEN c1;
+           FETCH c1 INTO cnumber;
+           if c1%notfound then
+              cnumber := 9999;
+           end if;
+           CLOSE c1;
+        RETURN cnumber;
+        END;
+</pre>
+<pre id=p2>
+        <strong>КУРСОР С ПАРАМЕТРАМИ</strong>
+        Объявим курсор с параметрами.
+        
+        Синтаксис
+
+        CURSOR cursor_name (parameter_list)
+        IS
+        SELECT_statement;
+        
+        Например, вы можете определить курсор под названием c2, как показано ниже.
+             
+        CURSOR c2 (subject_id_in IN varchar2)
+        IS
+          SELECT course_number
+          FROM courses_tbl
+          WHERE subject_id = subject_id_in;
+        
+        Результирующий набор этого курсора все course_numbers, у которых subject_id
+        соответствует subject_id полученные курсором с помощью параметра subject_id_in.
+</pre>
+<pre id=p3>
+        <strong>КУРСОР С ВОЗВРАЩАЮЩИМ УСЛОВИЕМ</strong> 
+        Наконец, мы можем объявить курсор с возвращающим условием.
+        
+        Синтаксис
+        CURSOR cursor_name
+        RETURN field%ROWTYPE
+        IS
+        SELECT_statement;
+        
+        Например, вы можете определить курсор под названием c3, как показано ниже.
+        
+        CURSOR c3
+        RETURN courses_tbl%ROWTYPE
+        IS
+           SELECT *
+           FROM courses_tbl
+           WHERE subject = 'Mathematics';
+        
+        Результирующим набором этого курсора будут все столбцы course_tbl, 
+        у которых subject будет Mathematics.
+</pre>
+
+
+
+
+</body>
+</html>
