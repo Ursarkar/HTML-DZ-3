@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Циклы</title>
+</head>
+<body>
+<hr>
+<h1><a href="index.html">Главная Страница/</a>Цикл</h1>
+<hr><br>
+<a href="https://google.by"><img src="./image/search.PNG" alt="картинка"></a>
+<br><br><hr>  
+<ul>
+    <li><a href="#p1">LOOP оператор</a></li>
+    <li><a href="#p2">FOR LOOP</a></li>
+    <li><a href="#p3">CURSOR FOR LOOP</a></li>
+    <li><a href="#p4">WHILE LOOP</a></li>
+    <li><a href="#p5">EXIT оператор</a></li>
+</ul>
+
+<hr> 
+<p id=p1>
+<h2>LOOP оператор</h2>
+<h3>Описание</h3>
+В Oracle оператора LOOP используется тогда, когда вы не уверены сколько раз вы хотите <br> 
+выполнить тело цикла или выполнить тело цикла, по крайней мере, один раз.
+<h4>Синтаксис</h4>
+<pre>
+LOOP
+   {…statements…}
+END LOOP;   
+</pre> 
+<h4>Параметры и аргументы</h4>
+statements - код выполняющийся при каждом прохождении через цикл.
+</p>
+
+<hr>
+<p id=p2>
+<h2>FOR операторы</h2>
+<h3>Описание</h3>
+Цикл FOR LOOP в Oracle позволяет выполнить код повторно в течение фиксированного <br>
+количества раз.
+<h4>Синтаксис</h4>
+<pre>
+FOR loop_counter IN [REVERSE] lowest_number..highest_number
+    LOOP
+        {…statements…}
+        
+    END LOOP;
+</pre> 
+<h4>Параметры и аргументы</h4>
+loop_counter — переменная счетчика цикла в цикле FOR LOOP. <br>
+REVERSE не является обязательным. Если REVERSE указано счетчик цикла будет считать <br>
+в обратном порядке. <br>
+lowest_number — начальное значение для loop_counter <br>
+highest_number — конечное значение для loop_counter. <br>
+statements — код выполняющийся при каждом прохождении через цикл. <br>
+</p>
+
+<hr>
+<p id=p3>
+<h2>CURSOR FOR LOOP</h2>
+<h3>Описание</h3>
+CURSOR FOR LOOP можно использовать тогда, когда вы хотите выгрузить и обработать <br>
+каждую запись курсора. CURSOR FOR LOOP завершится, когда все записи будут <br>
+извлечены в курсор.
+<h4>Синтаксис</h4>
+<pre>
+FOR record_index in cursor_name
+    LOOP
+        {…statements…}
+    END LOOP;
+</pre>
+<h4>Параметры и аргументы</h4>
+record_index – индекс записи <br>
+cursor_name — имя курсора, из которого вы хотите извлечь записи. <br>
+statements — код выполняющийся при каждом прохождении через цикл. <br>
+</p>
+
+<hr>
+<p id=p4>
+<h2>WHILE LOOP</h2>
+<h3>Описание</h3>
+В Oracle цикл WHILE LOOP, будет выполняться до тех пор, пока условие истинно.
+<h4>Синтаксис</h4>
+<pre>
+WHILE condition
+    LOOP
+        {…statements…}
+    END LOOP;
+</pre>
+<h4>Параметры и аргументы</h4>
+condition
+Проверяется condition в каждом прохождении цикла. Если condition принимает <br>
+значение TRUE, цикла выполняется. Если condition принимает значение FALSE <br>
+цикл прекращается.
+</p>
+
+<hr>
+<p id=p5>
+<h2>EXIT ОПЕРАТОР</h2>
+<h3>Описание</h3>
+В Oracle, оператор EXIT наиболее часто используется для завершения цикла LOOP.
+<h4>Синтаксис</h4>
+<pre>
+EXIT [WHEN boolean_condition];
+</pre>
+<h4>Параметры и аргументы</h4>
+boolean_condition не является обязательным. Это условие выхода из цикла.
+<hr>
+</p>
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
